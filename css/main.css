@@ -33,10 +33,10 @@ a {
 	text-decoration: none;
 }
 .container {
-	padding-left: 15px;
-	padding-right: 15px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 /* Small */
 @media (min-width: 768px) {
@@ -100,7 +100,20 @@ a {
 	animation: 0.5s right-move linear forwards;
 }
 /* End Main Heading */
-
+.spikes {
+	position: relative;
+}
+.spikes::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1;
+  background-image: linear-gradient(135deg, white 25%, transparent 25%),
+    linear-gradient(225deg, white 25%, transparent 25%);
+  background-size: 30px 30px;
+}
 /* End Global Rules */
 
 /* Start Header */
@@ -718,8 +731,91 @@ header .mega-menu .links a i {
 .team-members .box .info p {
 	margin: 10px 0 25px;
 }
-
 /* End Team Member */
+/* Start Services */
+.services {
+	padding-top: var(--main-section-padding);
+	padding-bottom: var(--main-section-padding);
+	background-color: var(--section-background);
+	position: relative;
+}
+.services .container{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 40px;
+}
+.services .box {
+	text-align: center;
+	background-color: white;
+  box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%), 0px 2px 4px 0px rgb(0 0 0 / 12%);
+	position: relative;
+	counter-increment: number;
+	transition: var(--main-transition);
+}
+.services .box:hover {
+	transform: translateY(-10px);
+}
+.services .box::before {
+	content: "";
+	position: absolute;
+	width: 0px;
+	height: 3px;
+	top: -3;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--main-color);
+	transition: var(--main-transition);
+}
+.services .box:hover::before {
+	width: 100%;
+	right: 0;
+}
+.services .box i {
+	color: rgb(204 203 203);
+	margin: 30px auto 20px;
+}
+.services .box h3 {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: var(--main-color);
+	margin: 20px auto 40px;
+}
+.services .box .info {
+	padding: 15px;
+	position: relative;
+	text-align: right;
+	overflow: hidden;
+}
+.services .box .info::before {
+	content: counter(number);
+	background-color: var(--main-color);
+	position: absolute;
+	color: white;
+	left: 0px;
+	top: 0px;
+	font-size: 30px;
+	font-weight: bold;
+	width: 80px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-right: 10px;
+}
+.services .box .info::after {
+	content: "";
+	position: absolute;
+	left: 80px;
+	top: 0;
+	background-color: rgb(204 203 203);
+	width: 50px;
+	height: calc(100% + 1px);
+	transform: skewX(-20deg);
+}
+.services .box .info a {
+	color: var(--main-color);
+}
+/* End Services */
 
 /* Start Animations */
 @keyframes up-and-down {
