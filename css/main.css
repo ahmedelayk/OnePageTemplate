@@ -193,7 +193,6 @@ header .main-nav > li > a::before {
 }
 header .main-nav > li > a:hover {
 	color: var(--main-color);
-	/* background-color: #fafafa; */
 }
 header .main-nav > li > a:hover::before {
 	left: 0;
@@ -604,6 +603,7 @@ header .mega-menu .links a i {
 	padding-top: var(--main-section-padding);
 	padding-bottom: var(--main-section-padding);
 	background-color: var(--section-background);
+	position: relative;
 }
 .testimonials .container{
 	display: grid;
@@ -849,6 +849,7 @@ header .mega-menu .links a i {
 	height: 100%;
 	background-color: var(--main-color);
 	position: relative;
+	transition: 1s;
 }
 /* .skills .data .skill .progress span::before {
 	content: "";
@@ -1334,6 +1335,7 @@ header .mega-menu .links a i {
 	font-weight: bold;
 	font-size: 2rem;
 	margin: 10px 0;
+	transition: 1s;
 }
 .stats .card span:last-of-type {
 	font-weight: bolder;
@@ -1344,7 +1346,6 @@ header .mega-menu .links a i {
 .discount {
 	display: flex;
 	flex-wrap: wrap;
-	min-height: 100vh;
 }
 @media (max-width: 991px) {
 	.discount{
@@ -1362,7 +1363,9 @@ header .mega-menu .links a i {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding: 0 30px;
+	padding: var(--main-section-padding) 30px;
+	transition: var(--main-transition);
+	animation: change-background 5s linear infinite;
 }
 .discount .info::before {
 	content: "";
@@ -1608,5 +1611,13 @@ footer > h2 span {
     width: 200%;
     height: 200%;
   }
+}
+@keyframes change-background {
+	50% {
+		background-image: url("../imgs/discount-background2.jpg");
+	}
+	100%{
+		background-image: url("../imgs/discount-background1.jpg");
+	}
 }
 /* End Animations */
